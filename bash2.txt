@@ -1,0 +1,61 @@
+В данном файле представлены bash-команды для выполнения в терминале. Для полноценной проверки работоспособности рекомендуется выполнять их строго в указанной последовательности.
+
+В каждом пункте дана краткая характеристика поставленной задачи, после двоеточия приведена сама команда. В пп. 3.1 и 3.2 — опции для достижения одного и того же результата. Эти команды взаимозаменяемы. В пп. 16.1 и 16.2 — опции с разными вариантами поиска.
+
+1. Открываем домашнюю директорию: cd
+
+2. Создаем в домашней директории папку test3: mkdir test3
+
+3.1. Добавляем в папку test3 три файла (4, 5 и 6), в каждом из которых должно быть по 4 строки (row1, row2, row3, row4) [длинный вариант]:
+touch test3/{4,5,6}.txt && echo row1 > test3/4.txt && echo row1 > test3/5.txt && echo row1 > test3/6.txt && echo row2 >> test3/4.txt && echo row2 >> test3/5.txt && echo row2 >> test3/6.txt && echo row3 >> test3/4.txt && echo row3 >> test3/5.txt && echo row3 >> test3/6.txt && echo row4 >> test3/4.txt && echo row4 >> test3/5.txt && echo row4 >> test3/6.txt
+
+3.2. Короткий вариант команды из п. 3.1:
+touch test3/{4,5,6}.txt && { echo row1; echo row2; echo row3; echo row4; } | tee test3/{4,5,6}.txt
+
+4. Находим строку row2 в файле 5: grep "row2" test3/5.txt
+
+5. Находим строку row в папке test3: grep -r "row" test3
+
+6. Считаем, сколько строк с содержимым row в файле 6: grep -c "row" test3/6.txt
+
+7. Находим файл 5 внутри папки test3: find test3 -name "5.txt"
+
+8. Используя команду find, удаляем файл 5: find test3 -name "5.txt" -exec rm {} \;
+
+9. Используя команду echo, добавляем слово test в файл 4: echo test > test3/4.txt
+
+10. Заменяем слово test в файле 4 на fail: echo fail > test3/4.txt
+
+11. Добавляем в файл 4 слово test так, чтобы сохранилось содержимое: echo test >> test3/4.txt
+
+12. Смотрим все процессы для юзеров, которые происходят в системе, не только в консоли: ps aux
+
+13. Убиваем процесс 666 в консоли: kill 666
+
+14. Узнаем доступность ресурса rusau.net, используя команду ping: ping rusau.net
+
+15. Отправляем 5 пакетов на сайт rusau.net: ping -c 5 rusau.net
+
+16.1. Используя GET и команду curl, получаем информацию о зарегистрированных питомцах со статусом "sold" на https://petstore.swagger.io/:
+curl -X 'GET'  'https://petstore.swagger.io/v2/pet/findByStatus?status=sold'
+
+16.2. Команда для получения информации о питомцах со всеми доступными статусами:
+curl -X 'GET' 'https://petstore.swagger.io/v2/pet/findByStatus?status=sold%2Cavailable%2Cpending'
+
+17. Используя POST и команду curl, создаем нового пользователя на https://petstore.swagger.io/:
+curl -X 'POST' \
+  'https://petstore.swagger.io/v2/user' \
+  -H 'accept: application/json' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "id": 9999999999,
+  "username": "khramovich",
+  "firstName": "Roman",
+  "lastName": "Khramovich",
+  "email": "roman@khramovich.ru",
+  "password": "p3tsTore*1",
+  "phone": "777",
+  "userStatus": 1
+}'
+
+Все представленные выше команды проверены на работоспособность.
