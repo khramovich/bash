@@ -1,6 +1,6 @@
 ## <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Pager.png" alt="Pager" width="25" height="25" /> Работа с bash
 
-Выполнил базовые команды, работая с терминалом в Visual Studio Code. Поработал над созданием, перемещением, редактированием, удалением файлов, а также доступ к веб-ресурсам.
+Выполнил базовые команды, работая с терминалом в Visual Studio Code. Поработал над созданием, перемещением, редактированием, удалением файлов, а также проверял доступ к веб-ресурсам.
 
 ### Артефакты:
 
